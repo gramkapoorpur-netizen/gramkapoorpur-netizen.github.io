@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import AdSlot from "./components/AdSlot";
 import BottomNav from "./components/BottomNav";
+import CinematicMemoryBook from "./components/CinematicMemoryBook";
 import GalleryGrid from "./components/GalleryGrid";
 import HindiHelper from "./components/HindiHelper";
 import PolicyPage from "./components/PolicyPage";
@@ -206,6 +207,8 @@ export default function App() {
 
             <HindiHelper galleryItems={items} onSearch={(term) => { setSearch(term); setView("gallery"); }} />
 
+            <CinematicMemoryBook memories={memoryItems} lang={lang} onSpeak={speak} />
+
             <section className="content-section">
               <div className="section-heading">
                 <span className="eyebrow">Featured</span>
@@ -269,6 +272,7 @@ export default function App() {
               <h1>{view === "memories" ? "यादों की गैलरी" : "गांव की गैलरी"}</h1>
               <p>नाम, जगह, साल या हिंदी शब्द से खोजें।</p>
             </div>
+            {view === "memories" ? <CinematicMemoryBook memories={memoryItems} lang={lang} onSpeak={speak} /> : null}
             <div className="search-panel">
               <Search size={19} />
               <input

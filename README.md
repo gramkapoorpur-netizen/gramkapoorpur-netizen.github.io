@@ -7,6 +7,7 @@ Hindi-first PWA website for Kapoorpur village memories, photo/video gallery, adm
 - Mobile-first PWA that works well on Android browsers.
 - Hindi default UI with optional English display for gallery titles.
 - Memory Gallery, festivals, events, temples, school, agriculture, people, and places.
+- Cinematic Memory Book for turning village memories like pages and sharing each story.
 - Free Hindi helper: voice search where supported, text-to-speech, FAQ answers, smart suggestions, and admin Hindi description helper.
 - Firebase Google/Gmail admin login.
 - Firestore gallery records and Firebase Storage media upload hooks.
