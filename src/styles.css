@@ -99,6 +99,19 @@ img {
   box-shadow: 0 6px 18px rgba(24, 74, 69, 0.1);
 }
 
+.language-button {
+  width: auto;
+  min-width: 62px;
+  border-radius: 999px;
+  padding: 0 10px;
+  gap: 5px;
+}
+
+.language-button span {
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
 .hero {
   min-height: calc(100svh - 94px);
   display: grid;

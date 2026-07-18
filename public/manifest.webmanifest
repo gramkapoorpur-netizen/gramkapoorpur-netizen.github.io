@@ -1,7 +1,7 @@
 {
-  "name": "Village Gallery Kapoorpur",
-  "short_name": "Kapoorpur",
-  "description": "Hindi-first village memory gallery PWA for Kapoorpur.",
+  "name": "कपूरपुर गांव गैलरी",
+  "short_name": "कपूरपुर",
+  "description": "कपूरपुर गांव की यादों, फोटो, कहानियों और समुदाय के लिए हिंदी PWA.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6f2ea",

@@ -60,7 +60,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
-  const [lang, setLang] = useState(() => localStorage.getItem("kapoorpurLang") || "hi");
+  const [lang, setLang] = useState(() => (localStorage.getItem("kapoorpurLang") === "en" ? "en" : "hi"));
   const [acceptedCookies, acceptCookies] = useCookieConsent();
 
   useEffect(() => {
@@ -72,6 +72,11 @@ export default function App() {
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang === "hi" ? "hi-IN" : "en";
+    document.title = lang === "hi" ? "कपूरपुर गांव गैलरी" : "Village Gallery Kapoorpur";
+  }, [lang]);
 
   useEffect(() => {
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
@@ -140,11 +145,12 @@ export default function App() {
       <header className="top-header">
         <button className="brand" type="button" onClick={() => setView("home")}>
           <img src={`${import.meta.env.BASE_URL}assets/icon-192.png`} alt="" />
-          <span>Village Gallery Kapoorpur</span>
+          <span>{lang === "hi" ? "कपूरपुर गांव गैलरी" : "Village Gallery Kapoorpur"}</span>
         </button>
         <div className="header-actions">
-          <button className="round-button" onClick={toggleLang} type="button" aria-label="Switch language">
+          <button className="round-button language-button" onClick={toggleLang} type="button" aria-label="भाषा बदलें">
             <Languages size={19} />
+            <span>{lang === "hi" ? "EN" : "हिंदी"}</span>
           </button>
           <button className="round-button" onClick={() => setView("admin")} type="button" aria-label="Admin">
             <ShieldCheck size={19} />
@@ -157,8 +163,8 @@ export default function App() {
           <>
             <section className="hero">
               <div className="hero-copy">
-                <span className="eyebrow">Hindi-first PWA</span>
-                <h1>Village Gallery Kapoorpur</h1>
+                <span className="eyebrow">{lang === "hi" ? "हिंदी मोबाइल ऐप" : "Hindi-first PWA"}</span>
+                <h1>{lang === "hi" ? "कपूरपुर गांव गैलरी" : "Village Gallery Kapoorpur"}</h1>
                 <p>
                   {lang === "hi"
                     ? "कपूरपुर की पुरानी यादें, त्योहार, लोग, खेत, स्कूल और खास जगहें एक आसान मोबाइल गैलरी में।"
@@ -173,7 +179,7 @@ export default function App() {
                     अपनी याद भेजें
                   </button>
                   <button className="icon-button" type="button" onClick={() => setView("circle")}>
-                    Kapoorpur Circle
+                    {lang === "hi" ? "कपूरपुर सर्कल" : "Kapoorpur Circle"}
                   </button>
                 </div>
               </div>
@@ -181,27 +187,27 @@ export default function App() {
                 <img src={`${import.meta.env.BASE_URL}assets/hero-kapoorpur.png`} alt="Kapoorpur village memory collage" />
                 <div className="hero-stat">
                   <strong>{items.length}</strong>
-                  <span>approved memories</span>
+                  <span>{lang === "hi" ? "स्वीकृत यादें" : "approved memories"}</span>
                 </div>
               </div>
             </section>
 
             <section className="stats-strip" aria-label="Site highlights">
               <div>
-                <strong>Hindi</strong>
-                <span>default UI</span>
+                <strong>हिंदी</strong>
+                <span>मुख्य भाषा</span>
               </div>
               <div>
-                <strong>Admin</strong>
+                <strong>एडमिन</strong>
                 <span>Gmail login</span>
               </div>
               <div>
                 <strong>PWA</strong>
-                <span>Android-ready</span>
+                <span>Android ready</span>
               </div>
               <div>
-                <strong>Circle</strong>
-                <span>village social feed</span>
+                <strong>सर्कल</strong>
+                <span>गांव की बातें</span>
               </div>
             </section>
 

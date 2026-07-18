@@ -4,7 +4,7 @@ const navItems = [
   { id: "home", label: "होम", icon: Home },
   { id: "gallery", label: "गैलरी", icon: Images },
   { id: "memories", label: "यादें", icon: Sparkles },
-  { id: "circle", label: "Circle", icon: UsersRound },
+  { id: "circle", label: "सर्कल", icon: UsersRound },
   { id: "submit", label: "भेजें", icon: Send },
   { id: "about", label: "गांव", icon: Landmark },
   { id: "admin", label: "एडमिन", icon: ShieldCheck },
