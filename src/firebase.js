@@ -12,7 +12,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-export const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || "YOUR_ADMIN_GMAIL@gmail.com";
+export const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || "singhmanoj2704@gmail.com";
 
 export const firebaseReady = Object.values(firebaseConfig).every(Boolean);
 

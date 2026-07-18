@@ -16,13 +16,14 @@ import GalleryGrid from "./components/GalleryGrid";
 import HindiHelper from "./components/HindiHelper";
 import PolicyPage from "./components/PolicyPage";
 import SubmissionForm from "./components/SubmissionForm";
+import VillageCircle from "./components/VillageCircle";
 import { aboutKapoorpur, policyPages } from "./data/content";
 import { categories } from "./data/sampleGallery";
 import { fetchGalleryItems } from "./services/galleryService";
 
 const AdminPanel = lazy(() => import("./components/AdminPanel"));
 
-const safeViews = new Set(["home", "gallery", "memories", "submit", "about", "admin"]);
+const safeViews = new Set(["home", "gallery", "memories", "circle", "submit", "about", "admin"]);
 
 function getHashView() {
   const value = window.location.hash.replace("#", "");
@@ -175,6 +176,9 @@ export default function App() {
                   <button className="icon-button" type="button" onClick={() => setView("submit")}>
                     अपनी याद भेजें
                   </button>
+                  <button className="icon-button" type="button" onClick={() => setView("circle")}>
+                    Kapoorpur Circle
+                  </button>
                 </div>
               </div>
               <div className="hero-photo">
@@ -308,6 +312,14 @@ export default function App() {
         ) : null}
 
         {view === "submit" ? <SubmissionForm /> : null}
+
+        {view === "circle" ? (
+          <VillageCircle
+            items={items}
+            memories={memoryItems}
+            onOpenMemories={() => setView("memories")}
+          />
+        ) : null}
 
         {view === "about" ? (
           <section className="about-page">
